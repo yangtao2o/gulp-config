@@ -4,7 +4,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev gulp serve",
-    "build": "cross-env NODE_ENV=dev gulp build"
+    "build": "cross-env NODE_ENV=dev gulp build",
+    "zip": "yarn build || npm run build && cross-env NODE_ENV=dev  gulp zip"
   },
   "license": "MIT",
   "devDependencies": {
