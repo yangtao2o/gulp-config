@@ -119,16 +119,16 @@ function remove() {
 
 function devServe(cb) {
   nodemon({ script: 'app.js', env: { NODE_ENV: 'development' }, done: cb })
-  browserSync.init({
-    server: {
-      baseDir: './src',
-      // https: true,
-      // directory: true,   //从与目录列表的应用程序目录中的文件即成
-      index: 'index.html' //从应用程序目录中提供文件，指定特定文件名为索引
-    },
-    port: 8080,
-    notify: false // 开启静默模式
-  })
+  // browserSync.init({
+  //   server: {
+  //     baseDir: './src',
+  //     // https: true,
+  //     // directory: true,   //从与目录列表的应用程序目录中的文件即成
+  //     index: 'index.html' //从应用程序目录中提供文件，指定特定文件名为索引
+  //   },
+  //   port: 8080,
+  //   notify: false // 开启静默模式
+  // })
 
   watch(config.input.js, js)
   watch(config.input.sass, css)
