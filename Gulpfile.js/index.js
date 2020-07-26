@@ -97,7 +97,7 @@ function img() {
 // 压缩为 zip 结尾
 function zip() {
   var timeStamp = moment().format('YYYY-MM-D_HH-mm-ss_')
-  return src(config.output.dist + '*')
+  return src(config.output.dist + '**/*')
     .pipe(gulpZip('gulp_project_' + timeStamp + '.zip'))
     .pipe(dest('zip'))
 }
@@ -118,12 +118,7 @@ function remove() {
 }
 
 function devServe(cb) {
-  nodemon({
-    script: 'app.js',
-    env: { NODE_ENV: 'development' },
-    done: cb
-  })
-
+  nodemon({ script: 'app.js', env: { NODE_ENV: 'development' }, done: cb })
   browserSync.init({
     server: {
       baseDir: './src',
@@ -158,7 +153,7 @@ if (process.env.NODE_ENV === 'dev') {
   exports.img = img
   exports.ts = typescript
   exports.remove = remove
+  exports.zip = zip
   exports.serve = devServe
-
   exports.build = series(remove, parallel(html, css, js, move))
 }
