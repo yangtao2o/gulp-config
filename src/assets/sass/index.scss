@@ -1,5 +1,5 @@
-@import "header";
-@import "footer";
+@import 'header';
+@import 'footer';
 
 $bg-color: #f90;
 $font-color: #444;
@@ -21,7 +21,7 @@ ul {
         color: red;
       }
       &::after {
-        content: "...";
+        content: '...';
       }
       #container & {
         color: red;
@@ -107,7 +107,7 @@ nav {
 }
 
 .blue-theme {
-  @import "blue-theme";
+  @import 'blue-theme';
 }
 $fancybox-width: 400px;
 .fancybox1 {
@@ -145,7 +145,7 @@ $fancybox-width: 400px;
   background-color: #fdd;
 }
 .error.intrusion {
-  background-image: url("/image/hacked.png");
+  background-image: url('/image/hacked.png');
 }
 .seriousError {
   @extend .error;
@@ -176,7 +176,7 @@ p {
 
 @each $kind in small, middle, large {
   .#{$kind}-icon {
-    background-image: url("/images/#{$kind}-icon.png");
+    background-image: url('/images/#{$kind}-icon.png');
   }
 }
 
@@ -185,7 +185,7 @@ p {
 @mixin clearfix {
   display: inline-block;
   &:after {
-    content: ".";
+    content: '.';
     display: block;
     height: 0;
     clear: both;
@@ -259,7 +259,7 @@ $grid-breakpoints: (
 //    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    "-sm"
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+  @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
@@ -306,14 +306,12 @@ $min-num: breakpoint-min(sm, $grid-breakpoints);
 $min-value-sm: breakpoint-infix(sm, $grid-breakpoints);
 $min-value-xs: breakpoint-infix(xs, $grid-breakpoints);
 
-
 .float#{$min-value-sm}-left {
   float: left;
 }
 .float#{$min-value-xs}-left {
   float: left;
 }
-
 
 $color: white;
 @mixin colors($color: blue) {
@@ -322,5 +320,7 @@ $color: white;
   border-color: $color;
 }
 .colors {
-  @include colors { color: $color; }
+  @include colors {
+    color: $color;
+  }
 }

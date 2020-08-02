@@ -1,0 +1,102 @@
+@import 'mixin';
+$fontSize14: rem(14);
+
+* {
+  padding: 0;
+  margin: 0;
+}
+header {
+  @include flexStyle();
+  box-shadow: 0 rem(4) rem(10) 0 #d7d7d7;
+  padding: rem(5) rem(15);
+  justify-content: space-between;
+  .logo {
+    width: rem(32);
+    height: rem(32);
+  }
+  .nav {
+    @include flexStyle();
+    a {
+      font-size: $fontSize14;
+      color: #4a4a4a;
+      text-decoration: none;
+      padding: rem(5) rem(10);
+      border-bottom: rem(2) solid transparent;
+      &.active {
+        border-color: #f50;
+      }
+    }
+  }
+}
+section {
+  padding: rem(15);
+  h1 {
+    font-size: rem(18);
+    margin-top: rem(20);
+    margin-bottom: rem(30);
+    text-align: center;
+  }
+  h2 {
+    font-size: rem(16);
+    margin-bottom: rem(20);
+  }
+  p,
+  li {
+    font-size: $fontSize14;
+    margin-bottom: rem(15);
+    line-height: 1.8;
+  }
+  ul {
+    @include flexStyle();
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    li {
+      width: 48%;
+      border: 1px solid #ccc;
+      border-radius: rem(4);
+      text-align: center;
+      padding: rem(20) rem(4);
+      box-sizing: border-box;
+      box-shadow: rem(2) rem(4) rem(10) #ccc;
+    }
+  }
+  .form {
+    label,
+    .btn {
+      @include flexStyle();
+      flex-wrap: nowrap;
+      font-size: $fontSize14;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: rem(20);
+    }
+    label {
+      input {
+        width: 85%;
+        padding: rem(5) rem(10);
+        box-sizing: border-box;
+      }
+    }
+    .btn {
+      width: 60%;
+      padding: rem(10);
+      letter-spacing: rem(10);
+      outline: none;
+      border: none;
+      background: #f50;
+      color: #fff;
+      border-radius: rem(100);
+      box-shadow: 0 rem(6) 0 0 #e24c02;
+    }
+  }
+}
+footer {
+  background: #000;
+  p {
+    font-size: rem(12);
+    color: #fff;
+    text-align: center;
+    padding: rem(20) 0;
+  }
+}

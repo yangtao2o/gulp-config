@@ -130,8 +130,8 @@ function devServe(cb) {
   //   notify: false // 开启静默模式
   // })
 
-  watch(config.input.js, js)
-  watch(config.input.sass, css)
+  watch(config.input.js, parallel(js, html))
+  watch(config.input.sass, parallel(css, html))
   watch(config.input.html).on('change', browserSync.reload)
   watch(config.input.src).on('change', (path, stats) =>
     console.log(`File ${path} was changed`)

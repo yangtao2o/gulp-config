@@ -20,7 +20,7 @@ router.get('/list', async (ctx, next) => {
   })
 })
 
-router.get('/', async (ctx, next) => {
+router.get('/go', async (ctx, next) => {
   ctx.body = `
     <form action="/login" method="post">
     <p>
@@ -57,7 +57,8 @@ app.use(router.routes()).use(router.allowedMethods())
 
 // 静态文件服务
 app.use(serve('.', { extensions: ['html'] })) // 根目录设置，extensions 可省略文件后缀访问
-app.use(serve(__dirname + '/static', { extensions: ['html'] })) // static 目录下
-app.use(serve(__dirname + '/static/assets')) // static 目录下
+app.use(serve(__dirname + '/src/views', { extensions: ['html'] })) // src 目录下
+app.use(serve(__dirname + '/dist', { extensions: ['html'] })) // dist 目录下
+app.use(serve(__dirname + '/dist/assets')) // dist 目录下
 
 app.listen(3000, () => console.log('http://localhost:3000'))
