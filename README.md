@@ -32,6 +32,10 @@ yarn build
 yarn zip
 ```
 
+## 其他文档
+
+- [Sass 项目文件结构管理](./docs/sass-layout-tree.md)
+
 ## Feature
 
 ### SASS
@@ -77,16 +81,16 @@ const { task, watch } = require('gulp')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
 
-const serve = function(cb) {
+const serve = function (cb) {
   browserSync.init({
     server: {
       baseDir: './src',
       https: true,
-      directory: true //从与目录列表的应用程序目录中的文件即成
+      directory: true, //从与目录列表的应用程序目录中的文件即成
       // index: "index.html"  //从应用程序目录中提供文件，指定特定文件名为索引
     },
     port: 8080,
-    notify: false // 开启静默模式
+    notify: false, // 开启静默模式
   })
 
   watch('src/*.html').on('change', reload)
@@ -118,10 +122,7 @@ const ts = require('gulp-typescript')
 const tsProject = ts.createProject('tsconfig.json')
 
 function typescript() {
-  return tsProject
-    .src()
-    .pipe(tsProject())
-    .js.pipe(dest('dist/ts'))
+  return tsProject.src().pipe(tsProject()).js.pipe(dest('dist/ts'))
 }
 
 exports.typescript = typescript
